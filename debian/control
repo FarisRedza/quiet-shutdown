@@ -1,0 +1,7 @@
+Package: quiet-shutdown
+Version: 0.1
+Architecture: all
+Section: misc
+Essential: no
+Priority: optional
+Description: Changes kernel.printk parameters to suppress kernel messages on shutdown.
