@@ -1,10 +1,10 @@
 NAME = quiet-shutdown
-VERSION = 0.1
+VERSION = 0.2
 PKG_VERSION = 1
 ARCH = all
 PKG_NAME = $(NAME)_$(VERSION)-$(PKG_VERSION)_$(ARCH).deb
 
-SYSCTL_DIR = etc/sysctl.d/
+SYSCTL_DIR = usr/lib/sysctl.d/
 
 deb_package:
 	mkdir -p PKG_SOURCE/$(SYSCTL_DIR)/
