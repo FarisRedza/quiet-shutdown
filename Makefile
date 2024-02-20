@@ -1,16 +1,12 @@
-NAME = quiet-shutdown
-VERSION = 0.2
-PKG_VERSION = 1
-ARCH = all
-PKG_NAME = $(NAME)_$(VERSION)-$(PKG_VERSION)_$(ARCH).deb
+prefix = /etc
 
-SYSCTL_DIR = usr/lib/sysctl.d/
+all: src/20-kernel-printk.conf
 
-deb_package:
-	mkdir -p PKG_SOURCE/$(SYSCTL_DIR)/
-	cp -r debian PKG_SOURCE/DEBIAN
+install: src/20-kernel-printk.conf
+	install -D src/* \
+		-t $(DESTDIR)$(prefix)/sysctl.d
 
-	cp -r src/* PKG_SOURCE/$(SYSCTL_DIR)/
-	
-	dpkg-deb --root-owner-group --build PKG_SOURCE $(PKG_NAME)
-	rm -r PKG_SOURCE
+uninstall:
+	-rm -rf $(DESTDIR)$(prefix)/sysctl.d/20-kernel-printk.conf
+
+.PHONY: all install uninstall

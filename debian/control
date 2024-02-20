@@ -1,8 +1,15 @@
-Package: quiet-shutdown
-Version: 0.2
-Architecture: all
+Source: quiet-shutdown
 Section: misc
-Essential: no
 Priority: optional
 Maintainer: Faris Redza <faris.redza1999@gmail.com>
-Description: Changes kernel.printk parameters to suppress kernel messages on shutdown.
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.0
+Homepage: https://github.com/FarisRedza/quiet-shutdown
+Vcs-Browser: https://github.com/FarisRedza/quiet-shutdown
+Vcs-Git: https://github.com/FarisRedza/quiet-shutdown.git
+Rules-Requires-Root: no
+
+Package: quiet-shutdown
+Architecture: all
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Changes kernel.printk parameters to suppress kernel messages on shutdown
